@@ -31,7 +31,7 @@ typedef struct{
     Reserva todas[100];
     int contador;
 }Agencia;
-Agencia cargaDatosA(Agencia& data){
+Agencia cargaDatosA(Agencia & data){
     ifstream archivo;
     char barra;
     archivo.open("reservasA.txt");
@@ -42,14 +42,15 @@ Agencia cargaDatosA(Agencia& data){
             archivo>>q.DNI>>q.inicio.ano>>barra>>q.inicio.mes>>barra>>q.inicio.dia;
             archivo>>q.noches>>q.codhabitacion>>q.precio;
             data.todas[i]=q;
-            archivo.close();
         }
+    archivo.close();
+
     }else{
         cout<<"Error al conseguir el archivoA";
     }
     return data;
 }
-Agencia cargaDatosB(Agencia& data){
+Agencia cargaDatosB(Agencia data){
     ifstream archivo;
     char barra;
     archivo.open("reservasB.txt");
@@ -99,6 +100,8 @@ void informacionReserva(int id,Agencia data){
     cout<<"Código de habitación: "<<data.todas[id].codhabitacion<<endl;
     cout<<"Precio: "<<data.todas[id].precio<<" € "<<endl;
     cout<<"-------------------------------"<<endl;
+    }else{
+        cout<<"No encontrado \n";
     }
 }
 void informegeneral(Agencia data){
@@ -192,6 +195,7 @@ void menu(){
         cin>>selector;
         info = true;
         while(info){
+            cin>>selector;
             switch(selector)
             {
             case 1:
