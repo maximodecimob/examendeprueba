@@ -192,7 +192,6 @@ void menu(){
         cout<<"3- Informe de una fecha            \n";
         cout<<"4- Salir del programa              \n";
         cout<<"-----------------------------------\n";
-        cin>>selector;
         info = true;
         while(info){
             cin>>selector;
