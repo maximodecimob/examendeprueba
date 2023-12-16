@@ -162,8 +162,8 @@ void generaInforme(Agencia data){
     cin>>mess;
     ofstream archivo;
     archivo.open("informe.txt");
+    archivo<<"Reservas realizadas durante "<<mess<<"/"<<anno<<endl;
     for (int i = 0; i < data.contador; i++) {
-        archivo<<"Reservas realizadas durante "<<mess<<"/"<<anno<<endl;
         if (reservaEnFecha(data.todas[i], mess, anno)) { 
         archivo << data.todas[i].DNI << ": Reserva de " <<data.todas[i].noches;
         archivo << " noches en la habitación " << data.todas[i].codhabitacion<< ", por ";
@@ -178,7 +178,7 @@ void menu(){
     Agencia data;
     data.contador=0;
     data=cargaDatosA(data);
-    data=cargaDatosB(data);
+    //data=cargaDatosB(data);
     bool programa=true;
     int selector;
     bool info = true;
